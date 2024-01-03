@@ -63,3 +63,5 @@ func (c *Client) SendSSMS(to, message, from string) (*http.Response, error) {
 
 	return resp, nil
 }
+
+// TODO: Implement multiple messaging

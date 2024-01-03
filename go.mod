@@ -1,3 +1,3 @@
-module github.com/Jkarage/nextsms-go-client
+module github.com/Jkarage/nextsms
 
 go 1.21.5

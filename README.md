@@ -19,7 +19,7 @@ export NEXT_PASSWORD=<yournextsmspassword>
 To use this in your golang project, add it to the module.
 
 ```bash
-go get github.com/Jkarage/nextsms-go-client
+go get github.com/Jkarage/nextsms
 ```
 
 ### Send SMS
@@ -27,7 +27,7 @@ go get github.com/Jkarage/nextsms-go-client
 Here is an example on how to send an SMS with this package;
 
 ```golang
-....
+...
 
 
 ```
