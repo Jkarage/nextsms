@@ -39,9 +39,9 @@ func authorizationHeader() string {
 	return encoded
 }
 
-// SendSSMS sends a single sms to a particular phone number provided
+// SendSDSMS sends a single sms to a particular phone number provided
 // for defaults senderid, put from ""
-func (c *Client) SendSSMS(to, message, from string) (*http.Response, error) {
+func (c *Client) SendSDSMS(to, message, from string) (*http.Response, error) {
 	if from == "" {
 		from = "N-SMS"
 	}
@@ -64,4 +64,27 @@ func (c *Client) SendSSMS(to, message, from string) (*http.Response, error) {
 	return resp, nil
 }
 
-// TODO: Implement multiple messaging
+// sendMDSMS sends the same message to miltiple
+// phone numbers
+func (c *Client) SendMDSMS(message string, to []string, from string) (*http.Response, error) {
+	if from == "" {
+		from = "N-SMS"
+	}
+
+	payload := strings.NewReader(fmt.Sprintf(`{"from":%s, "to":%v,  "text": %s,}`, from, to, message))
+	req, err := http.NewRequest("POST", singleURL, payload)
+	if err != nil {
+		return nil, err
+	}
+
+	req.Header.Add("Content-Type", "application/json")
+	req.Header.Add("Accept", "application/json")
+	req.Header.Add("Authorization", c.auth)
+
+	resp, err := c.http.Do(req)
+	if err != nil {
+		return nil, err
+	}
+
+	return resp, nil
+}
