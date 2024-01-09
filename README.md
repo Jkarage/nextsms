@@ -8,7 +8,6 @@ Golang Package to easy the integration with nextsms SMS Gateway
 
 - Add to your environment the username(`NEXT_USERNAME`) and password(`NEXT_PASSWORD`) in your environment.
 
-
 ```bash
 export NEXT_USERNAME=<yournextsmsusername> 
 export NEXT_PASSWORD=<yournextsmspassword>
@@ -27,8 +26,44 @@ go get github.com/Jkarage/nextsms
 Here is an example on how to send an SMS with this package;
 
 ```golang
-...
+import (
+    "github.com/Jkarage/nextsms"
+    "io"
+)
 
+func main() {
+    client := nextsms.New()
+    resp, err := client.SendSDSMS("+255713507067", "Hello world", "")
+    if err != nil {
+        // handle the error
+        log.Fatal(err)
+    }
 
+    // handle the response
+}
 ```
-ON PROGRESS
+
+### Send SMS to Multiple Phone Numbers
+
+Here is an example on how to send sms to multiple phone numbers, using nextsms client
+
+```golang
+import (
+    "github.com/Jkarage/nextsms"
+    "log"
+)
+
+func main() {
+    client := nextsms.New()
+    resp, err := client.SendMDSMS("Hi There", []string{"2557135070XX", "2557540534XX"}, "")
+    if err != nil {
+    log.Fatal(err)
+    }
+    if err != nil {
+        // handle the error
+        log.Fatal(err)
+    }
+
+    // handle the response
+}
+```
