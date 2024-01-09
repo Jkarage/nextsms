@@ -64,7 +64,7 @@ func (c *Client) SendSDSMS(to, message, from string) (*http.Response, error) {
 	return resp, nil
 }
 
-// sendMDSMS sends the same message to miltiple
+// sendMDSMS sends the same message to multiple
 // phone numbers
 func (c *Client) SendMDSMS(message string, to []string, from string) (*http.Response, error) {
 	if from == "" {
