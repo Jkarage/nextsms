@@ -1,4 +1,4 @@
-# Nextsms Golang Client
+# [Nextsms Golang Client](https://nextsms.co.tz)
 
 Golang Package to easy the integration with nextsms SMS Gateway
 
@@ -9,8 +9,10 @@ Golang Package to easy the integration with nextsms SMS Gateway
 - Add to your environment the username(`NEXT_USERNAME`) and password(`NEXT_PASSWORD`) in your environment.
 
 ```bash
+
 export NEXT_USERNAME=<yournextsmsusername> 
 export NEXT_PASSWORD=<yournextsmspassword>
+
 ```
 
 ## Installing the package
@@ -67,3 +69,5 @@ func main() {
     // handle the response
 }
 ```
+
+More Features in Progress. Tests on the way as well.
